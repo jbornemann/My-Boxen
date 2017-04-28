@@ -57,6 +57,7 @@ node default {
   include git
   include hub
   include nginx
+  include brewcask
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -79,9 +80,19 @@ node default {
     [
       'ack',
       'findutils',
-      'gnu-tar'
+      'gnu-tar',
+      'pv',
+      'docker',
+      'tmux'
     ]:
   }
+
+  package { 'atom': provider => 'brewcask' }
+  package { 'iterm2': provider => 'brewcask' }
+  package { 'google-chrome': provider => 'brewcask' }
+  package { 'istat-menus': provider => 'brewcask' }
+  package { 'intellij-idea' :  provider => 'brewcask'}
+  package { 'evernote' :  provider => 'brewcask'}
 
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
