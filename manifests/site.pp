@@ -93,6 +93,7 @@ node default {
   package { 'istat-menus': provider => 'brewcask' }
   package { 'intellij-idea' :  provider => 'brewcask'}
   package { 'evernote' :  provider => 'brewcask'}
+  package { 'skitch' :  provider => 'brewcask'}
 
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
